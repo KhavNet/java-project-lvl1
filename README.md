@@ -6,3 +6,6 @@
 
 ### My tests
 ![example workflow](https://github.com/KhavNet/java-project-lvl1/actions/workflows/main.yml/badge.svg)
+
+### Asciinema
+[Step-5](https://asciinema.org/a/WfddMV1NPutZhwLncGynPXHQ8)
