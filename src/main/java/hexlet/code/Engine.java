@@ -1,10 +1,12 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Greet;
+import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
+
 import java.util.Scanner;
 
 public class Engine {
@@ -25,6 +27,9 @@ public class Engine {
             case "5":
                 System.out.println("What number is missing in the progression?");
                 break;
+            case "6":
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                break;
             default:
         }
         for (int i = 0; i < RIGHT_ATTEMPTS; i++) {
@@ -40,6 +45,10 @@ public class Engine {
                     break;
                 case "5":
                     result = Progression.getResult(sc);
+                    break;
+                case "6":
+                    result = Prime.getResult(sc);
+                    break;
                 default:
             }
             if (!result) {

@@ -3,8 +3,8 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class Calc {
-    public static final int SCOPE_RANDOM_NUMBERS = 100;
-    public static final int SCOPE_RANDOM_NUMBERS2 = 3;
+    private static final int SCOPE_RANDOM_NUMBERS = 100;
+    private static final int SCOPE_RANDOM_NUMBERS2 = 3;
     private static int rightAnswer;
     public static boolean getResult(Scanner sc) {
         boolean result;

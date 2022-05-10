@@ -8,7 +8,8 @@
 ![example workflow](https://github.com/KhavNet/java-project-lvl1/actions/workflows/main.yml/badge.svg)
 
 ### Asciinema
-[Step-5](https://asciinema.org/a/WfddMV1NPutZhwLncGynPXHQ8)
-[Step-6](https://asciinema.org/a/l2VvbLA92nZPJZScBBjcUE9sG)
-[Step-7](https://asciinema.org/a/gzTWniO5W6ANTQgBuNbIxDxTj)
-[Step-8](https://asciinema.org/a/cgJGylg9omhOSTq8rwfYgSVGL)
+[Even](https://asciinema.org/a/WfddMV1NPutZhwLncGynPXHQ8)
+[Calc](https://asciinema.org/a/l2VvbLA92nZPJZScBBjcUE9sG)
+[GCD](https://asciinema.org/a/gzTWniO5W6ANTQgBuNbIxDxTj)
+[Progression](https://asciinema.org/a/cgJGylg9omhOSTq8rwfYgSVGL)
+[Prime](https://asciinema.org/a/T2tSQk6KBsDnoZ0IMubNNfgSC)

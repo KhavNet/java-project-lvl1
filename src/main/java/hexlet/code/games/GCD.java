@@ -3,7 +3,7 @@ package hexlet.code.games;
 import java.util.Scanner;
 
 public class GCD {
-    public static final int SCOPE_RANDOM_NUMBERS = 100;
+    private static final int SCOPE_RANDOM_NUMBERS = 100;
     public static boolean getResult(Scanner sc) {
         boolean result;
         int randomNumber1 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
