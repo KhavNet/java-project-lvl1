@@ -22,9 +22,9 @@ public class Prime {
         return result;
     }
     private static boolean isItPrime(int number) {
-        if (number <= 2) {
+        if (number == 2) {
             return true;
-        } else if (number % 2 == 0) {
+        } else if ((number % 2 == 0) || (number == 1)) {
             return false;
         } else {
             for (int i = START_FIND_PRIME; i * i <= number; i += 2) {
