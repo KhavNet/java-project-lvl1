@@ -1,10 +1,10 @@
 package hexlet.code;
 
+import hexlet.code.games.Greet;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Greet;
-
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class Engine {
@@ -22,6 +22,9 @@ public class Engine {
             case "4":
                 System.out.println("Find the greatest common divisor of given numbers.");
                 break;
+            case "5":
+                System.out.println("What number is missing in the progression?");
+                break;
             default:
         }
         for (int i = 0; i < RIGHT_ATTEMPTS; i++) {
@@ -35,6 +38,8 @@ public class Engine {
                 case "4":
                     result = GCD.getResult(sc);
                     break;
+                case "5":
+                    result = Progression.getResult(sc);
                 default:
             }
             if (!result) {
