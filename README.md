@@ -12,4 +12,4 @@
 [Calc](https://asciinema.org/a/l2VvbLA92nZPJZScBBjcUE9sG)
 [GCD](https://asciinema.org/a/gzTWniO5W6ANTQgBuNbIxDxTj)
 [Progression](https://asciinema.org/a/cgJGylg9omhOSTq8rwfYgSVGL)
-[Prime](https://asciinema.org/a/T2tSQk6KBsDnoZ0IMubNNfgSC)
+[Prime](https://asciinema.org/a/BikBaDug0ooWeWkK4i4QBaer2)
