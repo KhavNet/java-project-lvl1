@@ -12,32 +12,33 @@ public class Progression {
         int sizeProgression = (int) (MIN_SIZE_PROGRESSION + Math.random() * MULTIPLIER_MAX_SIZE_PROGRESSION);
         int positionMask = (int) (Math.random() * sizeProgression);
         boolean result;
-        String[] rightAnswer = getProgression(firstNumberPogression, sizeProgression, diffProgression, positionMask);
-        System.out.println("Question: " + rightAnswer[0]);
+        String[] questionAndAnswer = getProgression(firstNumberPogression,
+                sizeProgression, diffProgression, positionMask);
+        System.out.println("Question: " + questionAndAnswer[0]);
         var key = sc.next();
-        if (key.equals(rightAnswer[1])) {
+        if (key.equals(questionAndAnswer[1])) {
             result = true;
         } else {
             System.out.println("'" + key + "'" + " is wrong answer ;(. Correct answer was " + "'"
-                    + rightAnswer[1] + "'");
+                    + questionAndAnswer[1] + "'");
             result = false;
         }
         return result;
     }
     private static String[] getProgression(int firstNumber, int size, int diff, int mask) {
         int value = firstNumber;
-        String[] arrayProgressionAndMask = new String[2];
-        String strProgression = "";
+        String[] resArrayProgressionAndMask = new String[2];
+        String[] arrayProgression = new String[size];
         for (int i = 0; i < size; i++) {
             if (i == mask) {
-                strProgression = (strProgression + " .. ");
-                arrayProgressionAndMask[1] = Integer.toString(value);
+                arrayProgression[i] = "..";
+                resArrayProgressionAndMask[1] = Integer.toString(value);
             } else {
-                strProgression = (strProgression + " " + value + " ");
+                arrayProgression[i] = Integer.toString(value);
             }
             value += diff;
         }
-        arrayProgressionAndMask[0] = strProgression;
-        return arrayProgressionAndMask;
+        resArrayProgressionAndMask[0] = String.join(" ", arrayProgression);
+        return resArrayProgressionAndMask;
     }
 }
