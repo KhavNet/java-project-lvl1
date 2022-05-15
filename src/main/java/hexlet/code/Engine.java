@@ -1,63 +1,34 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Greet;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
 import java.util.Scanner;
 
 public class Engine {
     private static final int RIGHT_ATTEMPTS = 3;
-    private static boolean result;
-    public static void runGame(String key, Scanner sc) {
-        String name = Greet.getName(sc);
-        switch (key) {
-            case "2":
-                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-                break;
-            case "3":
-                System.out.println("What is the result of the expression?");
-                break;
-            case "4":
-                System.out.println("Find the greatest common divisor of given numbers.");
-                break;
-            case "5":
-                System.out.println("What number is missing in the progression?");
-                break;
-            case "6":
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                break;
-            default:
-        }
-        for (int i = 0; i < RIGHT_ATTEMPTS; i++) {
-            switch (key) {
-                case "2":
-                    result = Even.getResult(sc);
-                    break;
-                case "3":
-                    result = Calc.getResult(sc);
-                    break;
-                case "4":
-                    result = GCD.getResult(sc);
-                    break;
-                case "5":
-                    result = Progression.getResult(sc);
-                    break;
-                case "6":
-                    result = Prime.getResult(sc);
-                    break;
-                default:
+    public static void letsPlay(String[] dataGame, Scanner sc) {
+        if (!dataGame[0].equals("")) {
+            String name = getName(sc);
+            System.out.println(dataGame[2]);
+            for (int i = 0; i < RIGHT_ATTEMPTS; i++) {
+                System.out.println("Question: " + dataGame[0]);
+                System.out.print("Your answer: ");
+                String pressKey = sc.next();
+                if (pressKey.equals(dataGame[1])) {
+                    System.out.println("Correct!");
+                    dataGame = App.getDataGame();
+                } else {
+                    System.out.println("'" + pressKey + "'" + " is wrong answer ;(. Correct answer was " + dataGame[1]);
+                    System.out.println("Let's try again, " + name + "!");
+                    return;
+                }
             }
-            if (!result) {
-                System.out.println("Let's try again, " + name + "!");
-                return;
-            } else {
-                System.out.println("Correct!");
-            }
+            System.out.println("Congratulations, " + name + "!");
         }
-        System.out.println("Congratulations, " + name + "!");
+    }
+    public static String getName(Scanner sc) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String name = sc.next();
+        System.out.println("Hello, " + name + "!");
+        return name;
     }
 }

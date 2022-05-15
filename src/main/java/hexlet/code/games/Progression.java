@@ -1,29 +1,21 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public class Progression {
     private static final int MIN_SIZE_PROGRESSION = 5;
     private static final int MULTIPLIER_MAX_SIZE_PROGRESSION = 6;
     private static final int MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION = 50;
-    public static boolean getResult(Scanner sc) {
+    public static String[] runGame() {
         int firstNumberPogression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
         int diffProgression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
         int sizeProgression = (int) (MIN_SIZE_PROGRESSION + Math.random() * MULTIPLIER_MAX_SIZE_PROGRESSION);
         int positionMask = (int) (Math.random() * sizeProgression);
-        boolean result;
+        String[] dataGame = {"", "", ""};
+        dataGame[2] = "What number is missing in the progression?";
         String[] questionAndAnswer = getProgression(firstNumberPogression,
                 sizeProgression, diffProgression, positionMask);
-        System.out.println("Question: " + questionAndAnswer[0]);
-        var key = sc.next();
-        if (key.equals(questionAndAnswer[1])) {
-            result = true;
-        } else {
-            System.out.println("'" + key + "'" + " is wrong answer ;(. Correct answer was " + "'"
-                    + questionAndAnswer[1] + "'");
-            result = false;
-        }
-        return result;
+        dataGame[0] = questionAndAnswer[0];
+        dataGame[1] = questionAndAnswer[1];
+        return dataGame;
     }
     private static String[] getProgression(int firstNumber, int size, int diff, int mask) {
         int value = firstNumber;
