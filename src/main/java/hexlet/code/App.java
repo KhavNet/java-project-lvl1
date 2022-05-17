@@ -9,8 +9,6 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
-    private static Scanner scApp = new Scanner(System.in);
-    private static String key;
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("""
@@ -21,35 +19,33 @@ public class App {
             5 - Progression
             6 - Prime
             0 - Exit""");
+        String key;
+        Scanner scApp = new Scanner(System.in);
         key = scApp.next();
-        Engine.letsPlay(getDataGame(), scApp);
-        scApp.close();
-    }
-    public static String[] getDataGame() {
-        String[] dataGame = {"", "", ""};
         switch (key) {
             case "1":
-                Engine.getName(scApp);
+                Cli.getName();
                 break;
             case "2":
-                dataGame = Even.runGame();
+                Even.runGame();
                 break;
             case "3":
-                dataGame = Calc.runGame();
+                Calc.runGame();
                 break;
             case "4":
-                dataGame = GCD.runGame();
+                GCD.runGame();
                 break;
             case "5":
-                dataGame = Progression.runGame();
+                Progression.runGame();
                 break;
             case "6":
-                dataGame = Prime.runGame();
+                Prime.runGame();
+                break;
+            case "0":
                 break;
             default:
-                scApp.close();
-                break;
+                System.out.println("Unknown switch case: " + key);
         }
-        return dataGame;
+        scApp.close();
     }
 }

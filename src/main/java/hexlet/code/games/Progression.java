@@ -1,20 +1,29 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 public class Progression {
     private static final int MIN_SIZE_PROGRESSION = 5;
     private static final int MULTIPLIER_MAX_SIZE_PROGRESSION = 6;
     private static final int MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION = 50;
-    public static String[] runGame() {
-        int firstNumberPogression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
-        int diffProgression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
-        int sizeProgression = (int) (MIN_SIZE_PROGRESSION + Math.random() * MULTIPLIER_MAX_SIZE_PROGRESSION);
-        int positionMask = (int) (Math.random() * sizeProgression);
-        String[] dataGame = {"", "", ""};
-        dataGame[2] = "What number is missing in the progression?";
-        String[] questionAndAnswer = getProgression(firstNumberPogression,
-                sizeProgression, diffProgression, positionMask);
-        dataGame[0] = questionAndAnswer[0];
-        dataGame[1] = questionAndAnswer[1];
+    public static void runGame() {
+        Engine.letsPlay(getGameData());
+    }
+    private static String[][] getGameData() {
+        int rightAttempts = Engine.getAttemptsCount();
+        int volumeOfOneGameData = Engine.getVolumeOfOneGameData();
+        String[][] dataGame = new String[rightAttempts][volumeOfOneGameData];
+        for (int i = 0; i < rightAttempts; i++) {
+            int firstNumberPogression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
+            int diffProgression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
+            int sizeProgression = (int) (MIN_SIZE_PROGRESSION + Math.random() * MULTIPLIER_MAX_SIZE_PROGRESSION);
+            int positionMask = (int) (Math.random() * sizeProgression);
+            String[] questionAndAnswer = getProgression(firstNumberPogression,
+                    sizeProgression, diffProgression, positionMask);
+            dataGame[i][0] = questionAndAnswer[0];
+            dataGame[i][1] = questionAndAnswer[1];
+            dataGame[i][2] = "What number is missing in the progression?";
+        }
         return dataGame;
     }
     private static String[] getProgression(int firstNumber, int size, int diff, int mask) {
