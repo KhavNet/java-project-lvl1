@@ -2,38 +2,39 @@ package hexlet.code.games;
 
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
-    private static final int SCOPE_RANDOM_NUMBERS = 10;
+    private static final int VAR_FOR_MAX_RANDOM_NUMBER = 10;
     private static final int START_FIND_PRIME = 3;
+    private static final String GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static void runGame() {
         Engine.letsPlay(getGameData());
     }
     private static String[][] getGameData() {
-        int rightAttempts = Engine.getAttemptsCount();
-        String[][] dataGame = new String[rightAttempts][];
-        for (int i = 0; i < rightAttempts; i++) {
+        String[][] dataGame = new String[Engine.RIGHT_ATTEMPTS][];
+        for (int i = 0; i < Engine.RIGHT_ATTEMPTS; i++) {
             dataGame[i] = i == 0
-                    ? new String[] {"", "", "Answer 'yes' if given number is prime. Otherwise answer 'no'."}
+                    ? new String[] {"", "", GAME_TASK}
                     : new String[] {"", ""};
-            int randomNumber = (int) (1 + Math.random() * SCOPE_RANDOM_NUMBERS);
+            int randomNumber = Utils.getRnd(VAR_FOR_MAX_RANDOM_NUMBER, 1);
             dataGame[i][0] = Integer.toString(randomNumber);
-            dataGame[i][1] = isItPrime(randomNumber);
+            dataGame[i][1] = isPrime(randomNumber) ? "yes" : "no";
         }
         return dataGame;
     }
-    private static String  isItPrime(int number) {
+    private static boolean isPrime(int number) {
         if (number == 2) {
-            return "yes";
+            return true;
         } else if ((number % 2 == 0) || (number == 1)) {
-            return "no";
+            return false;
         } else {
             for (int i = START_FIND_PRIME; i * i <= number; i += 2) {
                 if (number % i == 0) {
-                    return "no";
+                    return false;
                 }
             }
-            return "yes";
+            return true;
         }
     }
 }

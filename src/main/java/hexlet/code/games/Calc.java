@@ -1,39 +1,38 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
-    private static final int SCOPE_RANDOM_NUMBERS = 100;
-    private static final int SCOPE_RANDOM_NUMBERS2 = 3;
+    private static final int VAR_FOR_MAX_RANDOM_NUMBER1 = 100;
+    private static final int VAR_FOR_MAX_RANDOM_NUMBER2 = 3;
+    private static final String GAME_TASK = "What is the result of the expression?";
     public static void runGame() {
         Engine.letsPlay(getGameData());
     }
     private static String[][] getGameData() {
-        int rightAttempts = Engine.getAttemptsCount();
-        String[][] dataGame = new String[rightAttempts][];
-        for (int i = 0; i < rightAttempts; i++) {
+        String[][] dataGame = new String[Engine.RIGHT_ATTEMPTS][];
+        for (int i = 0; i < Engine.RIGHT_ATTEMPTS; i++) {
             dataGame[i] = i == 0
-                    ? new String[] {"", "", "What is the result of the expression?"}
+                    ? new String[] {"", "", GAME_TASK}
                     : new String[] {"", ""};
-            int randomNumber1 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
-            int randomNumber2 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
-            int randomNumberForOperation = (int) (Math.random() * SCOPE_RANDOM_NUMBERS2);
+            int randomNumber1 = Utils.getRnd(VAR_FOR_MAX_RANDOM_NUMBER1);
+            int randomNumber2 = Utils.getRnd(VAR_FOR_MAX_RANDOM_NUMBER1);
+            int randomNumberForOperation = Utils.getRnd(VAR_FOR_MAX_RANDOM_NUMBER2);
             switch (randomNumberForOperation) {
-                case 0:
+                case 0 -> {
                     dataGame[i][0] = randomNumber1 + " + " + randomNumber2;
                     dataGame[i][1] = Integer.toString(randomNumber1 + randomNumber2);
-                    break;
-                case 1:
+                }
+                case 1 -> {
                     dataGame[i][0] = randomNumber1 + " - " + randomNumber2;
                     dataGame[i][1] = Integer.toString(randomNumber1 - randomNumber2);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     dataGame[i][0] = randomNumber1 + " * " + randomNumber2;
                     dataGame[i][1] = Integer.toString(randomNumber1 * randomNumber2);
-                    break;
-                default:
-                    System.out.println("Unknown operation number:" + randomNumberForOperation);
-                    break;
+                }
+                default -> throw new Error("Unknown operation number:" + randomNumberForOperation);
             }
         }
         return dataGame;

@@ -1,31 +1,32 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class GCD {
-    private static final int SCOPE_RANDOM_NUMBERS = 100;
+    private static final int VAR_FOR_MAX_RANDOM_NUMBER = 100;
+    private static final String GAME_TASK = "Find the greatest common divisor of given numbers.";
     public static void runGame() {
         Engine.letsPlay(getGameData());
     }
     private static String[][] getGameData() {
-        int rightAttempts = Engine.getAttemptsCount();
-        String[][] dataGame = new String[rightAttempts][];
-        for (int i = 0; i < rightAttempts; i++) {
+        String[][] dataGame = new String[Engine.RIGHT_ATTEMPTS][];
+        for (int i = 0; i < Engine.RIGHT_ATTEMPTS; i++) {
             dataGame[i] = i == 0
-                    ? new String[] {"", "", "Find the greatest common divisor of given numbers."}
+                    ? new String[] {"", "", GAME_TASK}
                     : new String[] {"", ""};
-            int randomNumber1 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
-            int randomNumber2 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
+            int randomNumber1 = Utils.getRnd(VAR_FOR_MAX_RANDOM_NUMBER);
+            int randomNumber2 = Utils.getRnd(VAR_FOR_MAX_RANDOM_NUMBER);
             dataGame[i][0] = randomNumber1 + " " + randomNumber2;
-            dataGame[i][1] = Integer.toString(getGCD(randomNumber1, randomNumber2));
+            dataGame[i][1] = Integer.toString(gcd(randomNumber1, randomNumber2));
         }
         return dataGame;
     }
-    public static int getGCD(int number1, int number2) {
+    private static int gcd(int number1, int number2) {
         if (number2 == 0) {
             return number1;
         }
-        return getGCD(number2, number1 % number2);
+        return gcd(number2, number1 % number2);
     }
 }
 

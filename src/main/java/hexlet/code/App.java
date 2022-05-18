@@ -44,7 +44,7 @@ public class App {
             case "0":
                 break;
             default:
-                System.out.println("Unknown switch case: " + key);
+                throw new Error("Wrong choice: " + key);
         }
         scApp.close();
     }
