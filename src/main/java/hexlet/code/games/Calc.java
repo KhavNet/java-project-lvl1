@@ -9,10 +9,12 @@ public class Calc {
         Engine.letsPlay(getGameData());
     }
     private static String[][] getGameData() {
-        int volumeOfOneGameData = Engine.getVolumeOfOneGameData();
         int rightAttempts = Engine.getAttemptsCount();
-        String[][] dataGame = new String[rightAttempts][volumeOfOneGameData];
+        String[][] dataGame = new String[rightAttempts][];
         for (int i = 0; i < rightAttempts; i++) {
+            dataGame[i] = i == 0
+                    ? new String[] {"", "", "What is the result of the expression?"}
+                    : new String[] {"", ""};
             int randomNumber1 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
             int randomNumber2 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
             int randomNumberForOperation = (int) (Math.random() * SCOPE_RANDOM_NUMBERS2);
@@ -33,7 +35,6 @@ public class Calc {
                     System.out.println("Unknown operation number:" + randomNumberForOperation);
                     break;
             }
-            dataGame[i][2] = "What is the result of the expression?";
         }
         return dataGame;
     }

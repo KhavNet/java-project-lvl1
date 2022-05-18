@@ -8,15 +8,16 @@ public class GCD {
         Engine.letsPlay(getGameData());
     }
     private static String[][] getGameData() {
-        int volumeOfOneGameData = Engine.getVolumeOfOneGameData();
         int rightAttempts = Engine.getAttemptsCount();
-        String[][] dataGame = new String[rightAttempts][volumeOfOneGameData];
+        String[][] dataGame = new String[rightAttempts][];
         for (int i = 0; i < rightAttempts; i++) {
+            dataGame[i] = i == 0
+                    ? new String[] {"", "", "Find the greatest common divisor of given numbers."}
+                    : new String[] {"", ""};
             int randomNumber1 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
             int randomNumber2 = (int) (Math.random() * SCOPE_RANDOM_NUMBERS);
             dataGame[i][0] = randomNumber1 + " " + randomNumber2;
             dataGame[i][1] = Integer.toString(getGCD(randomNumber1, randomNumber2));
-            dataGame[i][2] = "Find the greatest common divisor of given numbers.";
         }
         return dataGame;
     }

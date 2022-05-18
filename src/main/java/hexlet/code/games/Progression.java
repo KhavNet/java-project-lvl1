@@ -11,18 +11,19 @@ public class Progression {
     }
     private static String[][] getGameData() {
         int rightAttempts = Engine.getAttemptsCount();
-        int volumeOfOneGameData = Engine.getVolumeOfOneGameData();
-        String[][] dataGame = new String[rightAttempts][volumeOfOneGameData];
+        String[][] dataGame = new String[rightAttempts][];
         for (int i = 0; i < rightAttempts; i++) {
-            int firstNumberPogression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
+            dataGame[i] = i == 0
+                    ? new String[] {"", "", "What number is missing in the progression?"}
+                    : new String[] {"", ""};
+            int firstNumberProgression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
             int diffProgression = (int) (Math.random() * MULTIPLIER_FIRST_NUMBER_AND_DIFF_PROGRESSION);
             int sizeProgression = (int) (MIN_SIZE_PROGRESSION + Math.random() * MULTIPLIER_MAX_SIZE_PROGRESSION);
             int positionMask = (int) (Math.random() * sizeProgression);
-            String[] questionAndAnswer = getProgression(firstNumberPogression,
+            String[] questionAndAnswer = getProgression(firstNumberProgression,
                     sizeProgression, diffProgression, positionMask);
             dataGame[i][0] = questionAndAnswer[0];
             dataGame[i][1] = questionAndAnswer[1];
-            dataGame[i][2] = "What number is missing in the progression?";
         }
         return dataGame;
     }

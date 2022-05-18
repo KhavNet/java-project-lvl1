@@ -11,13 +11,14 @@ public class Prime {
     }
     private static String[][] getGameData() {
         int rightAttempts = Engine.getAttemptsCount();
-        int volumeOfOneGameData = Engine.getVolumeOfOneGameData();
-        String[][] dataGame = new String[rightAttempts][volumeOfOneGameData];
+        String[][] dataGame = new String[rightAttempts][];
         for (int i = 0; i < rightAttempts; i++) {
+            dataGame[i] = i == 0
+                    ? new String[] {"", "", "Answer 'yes' if given number is prime. Otherwise answer 'no'."}
+                    : new String[] {"", ""};
             int randomNumber = (int) (1 + Math.random() * SCOPE_RANDOM_NUMBERS);
             dataGame[i][0] = Integer.toString(randomNumber);
             dataGame[i][1] = isItPrime(randomNumber);
-            dataGame[i][2] = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         }
         return dataGame;
     }

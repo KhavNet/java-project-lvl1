@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Engine {
     private static final int RIGHT_ATTEMPTS = 3;
-    private static final int VOLUME_OF_ONE_GAME_DATA = 3;
     private static Scanner sc = new Scanner(System.in);
     public static void letsPlay(String[][] dataGame) {
         String name = getName();
@@ -33,8 +32,4 @@ public class Engine {
     public static int getAttemptsCount() {
         return RIGHT_ATTEMPTS;
     }
-    public static int getVolumeOfOneGameData() {
-        return VOLUME_OF_ONE_GAME_DATA;
-    }
-
 }
