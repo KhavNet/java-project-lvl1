@@ -9,6 +9,7 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("""
@@ -19,6 +20,7 @@ public class App {
             5 - Progression
             6 - Prime
             0 - Exit""");
+
         String key;
         Scanner scApp = new Scanner(System.in);
         key = scApp.next();
